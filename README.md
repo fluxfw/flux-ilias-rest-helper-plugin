@@ -18,4 +18,4 @@ If you use `flux-ilias-rest-api` on a different path than `Customizing/global/fl
 
 ### Cron
 
-For ILIAS < 8 you need to install [flux-ilias-rest-helper-legacy-cron-plugin](https://github.com/fluxapps/flux-ilias-rest-helper-legacy-cron-plugin) too
+For ILIAS < 8 you need to install [flux-ilias-rest-legacy-cron-helper-plugin](https://github.com/fluxapps/flux-ilias-rest-legacy-cron-helper-plugin) too
