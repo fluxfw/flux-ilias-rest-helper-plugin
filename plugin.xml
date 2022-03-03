@@ -1,0 +1,13 @@
+<?php xml version = "1.0" encoding = "UTF-8"?>
+<plugin id="flilrehepl">
+	<events>
+		<event id="Modules/Course" type="listen" />
+		<event id="Modules/Group" type="listen" />
+		<event id="Modules/OrgUnit" type="listen" />
+		<event id="Services/AccessControl" type="listen" />
+		<event id="Services/Object" type="listen" />
+		<event id="Services/Tracking" type="listen" />
+		<event id="Services/Tree" type="listen" />
+		<event id="Services/User" type="listen" />
+	</events>
+</plugin>
