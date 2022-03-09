@@ -1,13 +1,11 @@
 {
-  "description": "ILIAS Rest Helper Plugin (Experimental Alpha Version)",
-  "topics": [
-    "alpha",
-    "experimental",
-    "helper",
-    "ilias",
-    "php",
-    "plugin",
-    "rest"
-  ],
-  "homepage": "https://github.com/fluxapps/flux-ilias-rest-helper-plugin"
+    "description": "ILIAS Rest Helper Plugin",
+    "topics": [
+        "helper",
+        "ilias",
+        "php",
+        "plugin",
+        "rest"
+    ],
+    "homepage": "https://github.com/fluxapps/flux-ilias-rest-helper-plugin"
 }

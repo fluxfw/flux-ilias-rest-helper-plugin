@@ -1,6 +1,6 @@
 # flux-ilias-rest-helper-plugin
 
-Experimental Alpha Version
+ILIAS Rest Helper Plugin
 
 ## Installation
 
