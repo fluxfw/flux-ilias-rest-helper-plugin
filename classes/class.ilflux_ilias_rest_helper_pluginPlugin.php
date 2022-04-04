@@ -1,11 +1,11 @@
 <?php
 
-use FluxIliasRestApi\Adapter\Api\IliasRestApi;
+use FluxIliasRestApi\Libs\FluxIliasApi\Adapter\Api\IliasApi;
 
 trait FluxIliasRestHelperPlugin
 {
 
-    private IliasRestApi $ilias_rest_api;
+    private IliasApi $ilias_api;
 
 
     public function getPluginName() : string
@@ -16,7 +16,7 @@ trait FluxIliasRestHelperPlugin
 
     public function handleEvent(/*string*/ $component, /*string*/ $event, /*array*/ $parameters) : void
     {
-        $this->ilias_rest_api->handleIliasEvent(
+        $this->ilias_api->handleIliasEvent(
             $component,
             $event,
             $parameters
@@ -26,7 +26,7 @@ trait FluxIliasRestHelperPlugin
 
     protected function beforeUninstall() : bool
     {
-        $this->ilias_rest_api->uninstallHelperPlugin();
+        $this->ilias_api->uninstallHelperPlugin();
 
         return true;
     }
@@ -34,7 +34,7 @@ trait FluxIliasRestHelperPlugin
 
     protected function beforeUpdate() : bool
     {
-        $this->ilias_rest_api->installHelperPlugin();
+        $this->ilias_api->installHelperPlugin();
 
         return true;
     }
@@ -44,7 +44,7 @@ trait FluxIliasRestHelperPlugin
     {
         require_once __DIR__ . "/../autoload.php";
 
-        $this->ilias_rest_api = IliasRestApi::new();
+        $this->ilias_api = IliasApi::new();
     }
 }
 
@@ -56,7 +56,7 @@ if (interface_exists(ilCronJobProvider::class)) {
 
         public function getCronJobInstance(string $jobId) : ilCronJob
         {
-            return $this->ilias_rest_api->getCronJob(
+            return $this->ilias_api->getCronJob(
                 $jobId
             );
         }
@@ -64,7 +64,7 @@ if (interface_exists(ilCronJobProvider::class)) {
 
         public function getCronJobInstances() : array
         {
-            return $this->ilias_rest_api->getCronJobs();
+            return $this->ilias_api->getCronJobs();
         }
     }
 } else {

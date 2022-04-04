@@ -25,12 +25,12 @@ publish:
           docker pull $CI_REGISTRY_IMAGE:latest;
           docker logout $CI_REGISTRY;
         - echo -n $DEV_DOCKER_REGISTRY_PASSWORD | docker login -u $DEV_DOCKER_REGISTRY_USER --password-stdin $DEV_DOCKER_REGISTRY_URL;
-          docker tag $CI_REGISTRY_IMAGE:latest $DEV_DOCKER_REGISTRY_URL/flux-ilias-rest/helper-plugin:latest;
-          docker push $DEV_DOCKER_REGISTRY_URL/flux-ilias-rest/helper-plugin:latest;
+          docker tag $CI_REGISTRY_IMAGE:latest $DEV_DOCKER_REGISTRY_URL/flux-ilias-api/rest-helper-plugin:latest;
+          docker push $DEV_DOCKER_REGISTRY_URL/flux-ilias-api/rest-helper-plugin:latest;
           docker logout $DEV_DOCKER_REGISTRY_URL;
         - echo -n $DOCKER_REGISTRY_PASSWORD | docker login -u $DOCKER_REGISTRY_USER --password-stdin $DOCKER_REGISTRY_URL;
-          docker tag $DEV_DOCKER_REGISTRY_URL/flux-ilias-rest/helper-plugin:latest $DOCKER_REGISTRY_URL/flux-ilias-rest/helper-plugin:latest;
-          docker push $DOCKER_REGISTRY_URL/flux-ilias-rest/helper-plugin:latest;
+          docker tag $DEV_DOCKER_REGISTRY_URL/flux-ilias-api/rest-helper-plugin:latest $DOCKER_REGISTRY_URL/flux-ilias-api/rest-helper-plugin:latest;
+          docker push $DOCKER_REGISTRY_URL/flux-ilias-api/rest-helper-plugin:latest;
           docker logout $DOCKER_REGISTRY_URL;
     only:
         - main
