@@ -14,8 +14,6 @@ COPY --from=docker-registry.fluxpublisher.ch/flux-ilias-api/rest-helper-plugin:l
 
 You need the [flux-ilias-rest-api](https://github.com/flux-caps/flux-ilias-rest-api)
 
-If you use `flux-ilias-rest-api` on a different path than `Customizing/global/flux-ilias-rest-api`, you need to set the environment variable `FLUX_ILIAS_REST_HELPER_PLUGIN_API_PATH` in `flux-ilias` (Relative to Customizing/global)
-
 ### Cron
 
 For ILIAS < 8 you need to install [flux-ilias-rest-legacy-cron-helper-plugin](https://github.com/flux-caps/flux-ilias-rest-legacy-cron-helper-plugin) too
