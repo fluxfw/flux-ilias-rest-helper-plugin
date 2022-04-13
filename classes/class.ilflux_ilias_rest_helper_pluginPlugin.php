@@ -14,6 +14,16 @@ trait FluxIliasRestHelperPlugin
     }
 
 
+    public function getUIClassInstance() : ilUIHookPluginGUI
+    {
+        require_once __DIR__ . "/class.ilflux_ilias_rest_helper_pluginUIHookGUI.php";
+
+        return ilflux_ilias_rest_helper_pluginUIHookGUI::new(
+            $this->ilias_api
+        );
+    }
+
+
     public function handleEvent(/*string*/ $component, /*string*/ $event, /*array*/ $parameters) : void
     {
         $this->ilias_api->handleIliasEvent(
