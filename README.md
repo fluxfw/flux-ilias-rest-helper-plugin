@@ -4,7 +4,7 @@ ILIAS Rest Helper Plugin
 
 ## Installation
 
-In [flux-ilias](https://github.com/fluxapps/flux-ilias)
+In [flux-ilias](https://github.com/flux-caps/flux-ilias)
 
 ```dockerfile
 COPY --from=docker-registry.fluxpublisher.ch/flux-ilias-api/rest-helper-plugin:latest /flux-ilias-rest-helper-plugin "$ILIAS_WEB_DIR/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin"
