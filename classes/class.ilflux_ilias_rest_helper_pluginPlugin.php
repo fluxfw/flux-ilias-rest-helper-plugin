@@ -1,11 +1,20 @@
 <?php
 
 use FluxIliasRestApi\Libs\FluxIliasApi\Adapter\Api\IliasApi;
+use ILIAS\GlobalScreen\Provider\PluginProviderCollection;
 
 trait FluxIliasRestHelperPlugin
 {
 
     private IliasApi $ilias_api;
+
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->initPlugin();
+    }
 
 
     public function getPluginName() : string
@@ -50,11 +59,15 @@ trait FluxIliasRestHelperPlugin
     }
 
 
-    protected function init() : void
+    protected function initPlugin() : void
     {
         require_once __DIR__ . "/../autoload.php";
 
         $this->ilias_api = IliasApi::new();
+
+        $this->provider_collection->setMainBarProvider($this->ilias_api->getMenuProvider(
+            $this
+        ));
     }
 }
 
