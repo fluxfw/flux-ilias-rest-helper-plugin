@@ -25,9 +25,6 @@ class ilflux_ilias_rest_helper_pluginUIHookGUI extends ilUIHookPluginGUI
     }
 
 
-    /**
-     * @inheritDoc
-     */
     public function getHTML(/*string*/ $a_comp, /*string*/ $a_part, $a_par = []) : array
     {
         if ($a_comp === "Services/Utilities" && $a_part === "redirect") {
