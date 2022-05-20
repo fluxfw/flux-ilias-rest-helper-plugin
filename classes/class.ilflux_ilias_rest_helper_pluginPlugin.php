@@ -1,7 +1,6 @@
 <?php
 
 use FluxIliasRestApi\Libs\FluxIliasApi\Adapter\Api\IliasApi;
-use ILIAS\GlobalScreen\Provider\PluginProviderCollection;
 
 trait FluxIliasRestHelperPlugin
 {
@@ -9,9 +8,9 @@ trait FluxIliasRestHelperPlugin
     private IliasApi $ilias_api;
 
 
-    public function __construct()
+    public function __construct(...$args)
     {
-        parent::__construct();
+        parent::__construct(...$args);
 
         $this->initPlugin();
     }
