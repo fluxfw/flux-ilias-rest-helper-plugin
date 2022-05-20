@@ -59,7 +59,7 @@ trait FluxIliasRestHelperPlugin
     }
 
 
-    protected function initPlugin() : void
+    private function initPlugin() : void
     {
         require_once __DIR__ . "/../autoload.php";
 
