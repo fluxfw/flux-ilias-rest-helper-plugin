@@ -1,36 +1,18 @@
 <?php
 
-use FluxIliasRestApi\Libs\FluxIliasApi\Adapter\Api\IliasApi;
-
+/**
+ * @property ilflux_ilias_rest_helper_pluginPlugin $plugin_object
+ */
 class ilflux_ilias_rest_helper_pluginUIHookGUI extends ilUIHookPluginGUI
 {
-
-    private IliasApi $ilias_api;
-
-
-    private function __construct(
-        /*private readonly*/ IliasApi $ilias_api
-    ) {
-        $this->ilias_api = $ilias_api;
-    }
-
-
-    public static function new(
-        IliasApi $ilias_api
-    ) : /*static*/ self
-    {
-        return new static(
-            $ilias_api
-        );
-    }
-
 
     public function getHTML(/*string*/ $a_comp, /*string*/ $a_part, $a_par = []) : array
     {
         if ($a_comp === "Services/Utilities" && $a_part === "redirect") {
-            $url = $this->ilias_api->handleIliasRedirect(
-                $a_par["html"]
-            );
+            $url = $this->plugin_object::getIliasApi()
+                ->handleIliasRedirect(
+                    $a_par["html"]
+                );
             if ($url !== null) {
                 return [
                     "mode" => static::REPLACE,
@@ -45,6 +27,7 @@ class ilflux_ilias_rest_helper_pluginUIHookGUI extends ilUIHookPluginGUI
 
     public function gotoHook() : void
     {
-        $this->ilias_api->handleIliasGoto();
+        $this->plugin_object::getIliasApi()
+            ->handleIliasGoto();
     }
 }
