@@ -5,14 +5,27 @@ use FluxIliasRestApi\Libs\FluxIliasApi\Adapter\Api\IliasApi;
 trait FluxIliasRestHelperPlugin
 {
 
-    private IliasApi $ilias_api;
+    private static IliasApi $ilias_api;
 
 
     public function __construct(...$args)
     {
         parent::__construct(...$args);
 
-        $this->initPlugin();
+        $this->provider_collection->setMainBarProvider(static::getIliasApi()
+            ->getMenuProvider(
+                $this
+            ));
+    }
+
+
+    public static function getIliasApi() : IliasApi
+    {
+        require_once __DIR__ . "/../autoload.php";
+
+        static::$ilias_api ??= IliasApi::new();
+
+        return static::$ilias_api;
     }
 
 
@@ -22,29 +35,21 @@ trait FluxIliasRestHelperPlugin
     }
 
 
-    public function getUIClassInstance() : ilUIHookPluginGUI
-    {
-        require_once __DIR__ . "/class.ilflux_ilias_rest_helper_pluginUIHookGUI.php";
-
-        return ilflux_ilias_rest_helper_pluginUIHookGUI::new(
-            $this->ilias_api
-        );
-    }
-
-
     public function handleEvent(/*string*/ $component, /*string*/ $event, /*array*/ $parameters) : void
     {
-        $this->ilias_api->handleIliasEvent(
-            $component,
-            $event,
-            $parameters
-        );
+        static::getIliasApi()
+            ->handleIliasEvent(
+                $component,
+                $event,
+                $parameters
+            );
     }
 
 
     protected function beforeUninstall() : bool
     {
-        $this->ilias_api->uninstallHelperPlugin();
+        static::getIliasApi()
+            ->uninstallHelperPlugin();
 
         return true;
     }
@@ -52,21 +57,10 @@ trait FluxIliasRestHelperPlugin
 
     protected function beforeUpdate() : bool
     {
-        $this->ilias_api->installHelperPlugin();
+        static::getIliasApi()
+            ->installHelperPlugin();
 
         return true;
-    }
-
-
-    private function initPlugin() : void
-    {
-        require_once __DIR__ . "/../autoload.php";
-
-        $this->ilias_api = IliasApi::new();
-
-        $this->provider_collection->setMainBarProvider($this->ilias_api->getMenuProvider(
-            $this
-        ));
     }
 }
 
@@ -78,15 +72,17 @@ if (interface_exists(ilCronJobProvider::class)) {
 
         public function getCronJobInstance(string $jobId) : ilCronJob
         {
-            return $this->ilias_api->getCronJob(
-                $jobId
-            );
+            return static::getIliasApi()
+                ->getCronJob(
+                    $jobId
+                );
         }
 
 
         public function getCronJobInstances() : array
         {
-            return $this->ilias_api->getCronJobs();
+            return static::getIliasApi()
+                ->getCronJobs();
         }
     }
 } else {
