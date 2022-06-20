@@ -4,7 +4,7 @@ FROM $FLUX_PHP_BACKPORT_IMAGE AS build
 
 COPY . /flux-ilias-rest-helper-plugin
 
-RUN php-backport /flux-ilias-rest-helper-plugin
+RUN php-backport /flux-ilias-rest-helper-plugin FluxIliasRestApi\\Libs\\FluxLegacyEnum
 
 FROM scratch
 
