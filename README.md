@@ -4,23 +4,25 @@ ILIAS Rest Helper Plugin
 
 ## Installation
 
+Hint: Use `latest` as `%tag%` (or omit it) for get the latest build
+
 ### flux-ilias-rest-helper-plugin
 
-#### In [flux-ilias](https://github.com/flux-caps/flux-ilias)
-
 ```dockerfile
-COPY --from=docker-registry.fluxpublisher.ch/flux-ilias-api/rest-helper-plugin:latest /flux-ilias-rest-helper-plugin $ILIAS_WEB_DIR/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin
+COPY --from=docker-registry.fluxpublisher.ch/flux-ilias-api/rest-helper-plugin:%tag% /flux-ilias-rest-helper-plugin %web_root%/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin
 ```
 
 or
 
 ```dockerfile
-RUN (mkdir -p $ILIAS_WEB_DIR/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin && cd $ILIAS_WEB_DIR/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin && wget -O - https://docker-registry.fluxpublisher.ch/api/get-build-archive/flux-ilias-api/rest-helper-plugin | tar -xz --strip-components=1)
+RUN (mkdir -p %web_root%/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin && cd %web_root%/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin && wget -O - https://docker-registry.fluxpublisher.ch/api/get-build-archive/flux-ilias-api/rest-helper-plugin.tar.gz?tag=%tag% | tar -xz --strip-components=1)
 ```
 
-#### Other
+or
 
-Download https://docker-registry.fluxpublisher.ch/api/get-build-archive/flux-ilias-api/rest-helper-plugin and extract it to %web_root%/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin
+Download https://docker-registry.fluxpublisher.ch/api/get-build-archive/flux-ilias-api/rest-helper-plugin.tar.gz?tag=%tag% and extract it to `%web_root%/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin`
+
+Hint: If you use `wget` without pipe use `--content-disposition` to get the correct file name
 
 ### Api
 
