@@ -4,6 +4,7 @@
 
 Changes:
 
+- Disable ILIAS cli support
 - Locked flux-php-backport version
 - Remove create-gitlab-artifact-from-build
 
