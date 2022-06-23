@@ -1,6 +1,6 @@
 ARG FLUX_PHP_BACKPORT_IMAGE=docker-registry.fluxpublisher.ch/flux-php-backport
 
-FROM $FLUX_PHP_BACKPORT_IMAGE AS build
+FROM $FLUX_PHP_BACKPORT_IMAGE:v2022-06-23-1 AS build
 
 COPY . /build/flux-ilias-rest-helper-plugin
 
