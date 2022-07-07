@@ -13,12 +13,12 @@ COPY --from=docker-registry.fluxpublisher.ch/flux-ilias-rest-helper-plugin:%tag%
 or
 
 ```dockerfile
-RUN (mkdir -p %web_root%/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin && cd %web_root%/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin && wget -O - https://github.com/flux-eco/flux-ilias-rest-helper-plugin/releases/download/%tag%/flux-ilias-rest-helper-plugin-%tag%-build.tar.gz | tar -xz --strip-components=1)
+RUN (mkdir -p %web_root%/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin && cd %web_root%/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin && wget -O - https://github.com/flux-caps/flux-ilias-rest-helper-plugin/releases/download/%tag%/flux-ilias-rest-helper-plugin-%tag%-build.tar.gz | tar -xz --strip-components=1)
 ```
 
 or
 
-Download https://github.com/flux-eco/flux-ilias-rest-helper-plugin/releases/download/%tag%/flux-ilias-rest-helper-plugin-%tag%-build.tar.gz and extract it to `%web_root%/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin`
+Download https://github.com/flux-caps/flux-ilias-rest-helper-plugin/releases/download/%tag%/flux-ilias-rest-helper-plugin-%tag%-build.tar.gz and extract it to `%web_root%/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin`
 
 ### Api
 
