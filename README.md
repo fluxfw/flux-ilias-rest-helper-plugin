@@ -7,12 +7,6 @@ ILIAS Rest Helper Plugin
 ### flux-ilias-rest-helper-plugin
 
 ```dockerfile
-COPY --from=docker-registry.fluxpublisher.ch/flux-ilias-rest-helper-plugin:%tag% /flux-ilias-rest-helper-plugin %web_root%/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin
-```
-
-or
-
-```dockerfile
 RUN (mkdir -p %web_root%/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin && cd %web_root%/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin && wget -O - https://github.com/flux-caps/flux-ilias-rest-helper-plugin/releases/download/%tag%/flux-ilias-rest-helper-plugin-%tag%-build.tar.gz | tar -xz --strip-components=1)
 ```
 
