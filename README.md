@@ -7,17 +7,17 @@ ILIAS Rest Helper Plugin
 ### flux-ilias-rest-helper-plugin
 
 ```dockerfile
-RUN (mkdir -p %web_root%/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin && cd %web_root%/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin && wget -O - https://github.com/flux-eco/flux-ilias-rest-helper-plugin/releases/download/%tag%/flux-ilias-rest-helper-plugin-%tag%-build.tar.gz | tar -xz --strip-components=1)
+RUN (mkdir -p %web_root%/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin && cd %web_root%/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin && wget -O - https://github.com/fluxfw/flux-ilias-rest-helper-plugin/releases/download/%tag%/flux-ilias-rest-helper-plugin-%tag%-build.tar.gz | tar -xz --strip-components=1)
 ```
 
 or
 
-Download https://github.com/flux-eco/flux-ilias-rest-helper-plugin/releases/download/%tag%/flux-ilias-rest-helper-plugin-%tag%-build.tar.gz and extract it to `%web_root%/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin`
+Download https://github.com/fluxfw/flux-ilias-rest-helper-plugin/releases/download/%tag%/flux-ilias-rest-helper-plugin-%tag%-build.tar.gz and extract it to `%web_root%/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/flux_ilias_rest_helper_plugin`
 
 ### Api
 
-You need the [flux-ilias-rest-api](https://github.com/flux-eco/flux-ilias-rest-api)
+You need the [flux-ilias-rest-api](https://github.com/fluxfw/flux-ilias-rest-api)
 
 ### Cron
 
-For ILIAS < 8 you need to install [flux-ilias-rest-legacy-cron-helper-plugin](https://github.com/flux-eco/flux-ilias-rest-legacy-cron-helper-plugin) too
+For ILIAS < 8 you need to install [flux-ilias-rest-legacy-cron-helper-plugin](https://github.com/fluxfw/flux-ilias-rest-legacy-cron-helper-plugin) too
