@@ -9,7 +9,7 @@ ILIAS Rest Helper Plugin
 #### In [flux-ilias-ilias-base](https://github.com/fluxfw/flux-ilias-ilias-base)
 
 ```dockerfile
-RUN /flux-ilias-ilias-base/bin/download-flux-ilias-rest-helper-plugin.sh %tag%
+RUN /flux-ilias-ilias-base/bin/install-flux-ilias-rest-helper-plugin.sh %tag%
 ```
 
 #### Other
