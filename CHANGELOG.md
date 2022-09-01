@@ -6,6 +6,12 @@ Changes:
 
 \-
 
+## v2022-09-01-1
+
+Changes:
+
+- ILIAS 8 workaround for SuperGlobalDropInReplacement
+
 ## v2022-07-12-1
 
 Changes:
