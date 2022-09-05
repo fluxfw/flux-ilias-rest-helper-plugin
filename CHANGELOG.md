@@ -6,6 +6,12 @@ Changes:
 
 \-
 
+## v2022-09-05-1
+
+Changes:
+
+- Check `fixSuperGlobalDropInReplacements` only in needed contexts
+
 ## v2022-09-01-1
 
 Changes:
