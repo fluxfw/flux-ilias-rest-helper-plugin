@@ -11,9 +11,9 @@ class ilflux_ilias_rest_helper_pluginUIHookGUI extends ilUIHookPluginGUI
 
     public function getHTML(/*string*/ $a_comp, /*string*/ $a_part, /*array*/ $a_par = []) : array
     {
-        $this->fixSuperGlobalDropInReplacements();
-
         if ($a_comp === "Services/Utilities" && $a_part === "redirect") {
+            $this->fixSuperGlobalDropInReplacements();
+
             $url = $this->plugin_object::getIliasApi()
                 ->handleIliasRedirect(
                     $a_par["html"]
