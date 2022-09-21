@@ -1,4 +1,4 @@
-FROM php:cli-alpine AS build
+FROM php:8.1-cli-alpine AS build
 
 RUN (mkdir -p /flux-php-backport && cd /flux-php-backport && wget -O - https://github.com/fluxfw/flux-php-backport/releases/download/v2022-07-12-1/flux-php-backport-v2022-07-12-1-build.tar.gz | tar -xz --strip-components=1)
 
