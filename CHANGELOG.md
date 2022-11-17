@@ -6,6 +6,12 @@ Changes:
 
 \-
 
+## v2022-11-17-1
+
+Changes:
+
+- Remove ILIAS 6 support
+
 ## v2022-09-05-1
 
 Changes:
