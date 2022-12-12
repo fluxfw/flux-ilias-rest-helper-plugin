@@ -1,6 +1,6 @@
-FROM php:8.1-cli-alpine AS build
+FROM php:8.2-cli-alpine AS build
 
-RUN (mkdir -p /flux-php-backport && cd /flux-php-backport && wget -O - https://github.com/fluxfw/flux-php-backport/releases/download/v2022-07-12-1/flux-php-backport-v2022-07-12-1-build.tar.gz | tar -xz --strip-components=1)
+RUN (mkdir -p /flux-php-backport && cd /flux-php-backport && wget -O - https://github.com/fluxfw/flux-php-backport/releases/download/v2022-12-12-2/flux-php-backport-v2022-12-12-2-build.tar.gz | tar -xz --strip-components=1)
 
 COPY . /build/flux-ilias-rest-helper-plugin
 
