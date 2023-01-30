@@ -6,6 +6,12 @@ Changes:
 
 \-
 
+## v2023-01-30-1
+
+Changes:
+
+- Update to latest `flux-ilias-rest-api`
+
 ## v2022-12-12-1
 
 Changes:

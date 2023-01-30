@@ -1,31 +1,31 @@
 <?php
 
-use FluxIliasRestApi\Libs\FluxIliasApi\Adapter\Api\IliasApi;
+use FluxIliasRestApi\Adapter\Api\IliasRestApi;
 
 trait FluxIliasRestHelperPlugin
 {
 
-    private static IliasApi $ilias_api;
+    private static IliasRestApi $ilias_rest_api;
 
 
     public function __construct(...$args)
     {
         parent::__construct(...$args);
 
-        $this->provider_collection->setMainBarProvider(static::getIliasApi()
+        $this->provider_collection->setMainBarProvider(static::getIliasRestApi()
             ->getMenuProvider(
                 $this
             ));
     }
 
 
-    public static function getIliasApi() : IliasApi
+    public static function getIliasRestApi() : IliasRestApi
     {
         require_once __DIR__ . "/../autoload.php";
 
-        static::$ilias_api ??= IliasApi::new();
+        static::$ilias_rest_api ??= IliasRestApi::new();
 
-        return static::$ilias_api;
+        return static::$ilias_rest_api;
     }
 
 
@@ -37,7 +37,7 @@ trait FluxIliasRestHelperPlugin
 
     public function handleEvent(/*string*/ $component, /*string*/ $event, /*array*/ $parameters) : void
     {
-        static::getIliasApi()
+        static::getIliasRestApi()
             ->handleIliasEvent(
                 $component,
                 $event,
@@ -48,7 +48,7 @@ trait FluxIliasRestHelperPlugin
 
     protected function beforeUninstall() : bool
     {
-        static::getIliasApi()
+        static::getIliasRestApi()
             ->uninstallHelperPlugin();
 
         return true;
@@ -57,7 +57,7 @@ trait FluxIliasRestHelperPlugin
 
     protected function beforeUpdate() : bool
     {
-        static::getIliasApi()
+        static::getIliasRestApi()
             ->installHelperPlugin();
 
         return true;
@@ -72,7 +72,7 @@ if (interface_exists(ilCronJobProvider::class)) {
 
         public function getCronJobInstance(string $jobId) : ilCronJob
         {
-            return static::getIliasApi()
+            return static::getIliasRestApi()
                 ->getCronJob(
                     $jobId
                 );
@@ -81,7 +81,7 @@ if (interface_exists(ilCronJobProvider::class)) {
 
         public function getCronJobInstances() : array
         {
-            return static::getIliasApi()
+            return static::getIliasRestApi()
                 ->getCronJobs();
         }
     }

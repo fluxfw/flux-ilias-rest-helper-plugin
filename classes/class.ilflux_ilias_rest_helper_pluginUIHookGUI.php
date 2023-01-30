@@ -14,7 +14,7 @@ class ilflux_ilias_rest_helper_pluginUIHookGUI extends ilUIHookPluginGUI
         if ($a_comp === "Services/Utilities" && $a_part === "redirect") {
             $this->fixSuperGlobalDropInReplacements();
 
-            $url = $this->plugin_object::getIliasApi()
+            $url = $this->plugin_object::getIliasRestApi()
                 ->handleIliasRedirect(
                     $a_par["html"]
                 );
@@ -34,7 +34,7 @@ class ilflux_ilias_rest_helper_pluginUIHookGUI extends ilUIHookPluginGUI
     {
         $this->fixSuperGlobalDropInReplacements();
 
-        $this->plugin_object::getIliasApi()
+        $this->plugin_object::getIliasRestApi()
             ->handleIliasGoto();
     }
 
