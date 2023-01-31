@@ -1,4 +1,6 @@
 *
+!bin/install-libraries.sh
+!bin/php-backport.sh
 !classes
 !classes/**
 !autoload.php
