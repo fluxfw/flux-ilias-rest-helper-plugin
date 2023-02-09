@@ -1,7 +1,7 @@
 <?php
 
 $id = "flilrehepl";
-$version = "2023.01.31";
+$version = "2023.02.09";
 $ilias_min_version = "7.0";
 $ilias_max_version = "7.999";
 $responsible = "";

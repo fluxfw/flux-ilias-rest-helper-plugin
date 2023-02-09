@@ -2,12 +2,13 @@
 
 set -e
 
-root="`dirname "$0"`/.."
+bin="`dirname "$0"`"
+root="$bin/.."
 libs="$root/.."
 
 checkAlreadyInstalled() {
     if [ `ls "$libs" | wc -l` != "1" ]; then
-        echo "Already installed"
+        echo "Already installed" >&2
         exit 1
     fi
 }
@@ -18,4 +19,4 @@ installLibrary() {
 
 checkAlreadyInstalled
 
-installLibrary flux-php-backport https://github.com/fluxfw/flux-php-backport/archive/refs/tags/v2023-01-31-1.tar.gz
+installLibrary flux-php-backport https://github.com/fluxfw/flux-php-backport/archive/refs/tags/v2023-02-09-1.tar.gz
