@@ -6,6 +6,12 @@ Changes:
 
 \-
 
+## v2023-04-03-1
+
+Changes:
+
+- ILIAS 8
+
 ## v2023-02-09-1
 
 Changes:
